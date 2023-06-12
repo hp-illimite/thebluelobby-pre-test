@@ -1,15 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 import { getHelloWorld } from "./api";
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import Test from "./component/Test.tsx";
 
 function App() {
-  const [data, setData] = useState('');
+  const [data, setData] = useState("");
 
   useEffect(() => {
-    getHelloWorld().then((resp) => setData(resp.data))
-  }, [])
+    getHelloWorld().then((resp) => setData(resp.data));
+  }, []);
 
   return (
     <>
@@ -22,14 +23,13 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <div className="card">
-        {data}
-      </div>
+      <div className="card">{data}</div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
+        <Test />
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
