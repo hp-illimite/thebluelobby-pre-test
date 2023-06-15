@@ -1,13 +1,13 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import Test from '../components/Test';
+import AddNewTask from '../components/AddNewTask';
 
 function NewTask() {
   return (
     <>
       <Navbar />
       <h1>New Task</h1>
-      <Test />
+      <AddNewTask />
     </>
   );
 }

@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import Task from './Task.tsx';
 
-function Test() {
-  const [tasks, setTasks] = useState([
-    { id: 1, title: 'Task 1', description: 'Description for Task 1' },
-    { id: 2, title: 'Task 2', description: 'Description for Task 2' },
-  ]);
+function AddNewTask() {
+  const [tasks, setTasks] = useState([]);
   const [newTaskTitle, setNewTaskTitle] = useState('');
   const [newTaskDescription, setNewTaskDescription] = useState('');
 
@@ -35,13 +32,25 @@ function Test() {
           onChange={(e) => setNewTaskDescription(e.target.value)}
           placeholder="Task Description"
         ></textarea>
-        <button type="submit">Add Task</button>
+        <button type="submit">Add New Task</button>
       </form>
-      {tasks.map((task) => (
-        <Task key={task.id} task={task} />
-      ))}
+
+      <h3>Task List</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Task Name</th>
+            <th>Task Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tasks.map((task) => (
+            <Task key={task.id} task={task} />
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
 
-export default Test;
+export default AddNewTask;
