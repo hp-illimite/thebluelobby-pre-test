@@ -5,11 +5,11 @@ function Navbar() {
   return (
     <div className="button-wrap">
       <Link to="/">
-        <button>View All Task</button>
+        <button>Add New Task</button>
       </Link>
 
-      <Link to="/add-new-task">
-        <button>Add New Task</button>
+      <Link to="/view-all-task">
+        <button>View All Task</button>
       </Link>
     </div>
   );

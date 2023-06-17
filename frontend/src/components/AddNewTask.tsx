@@ -34,6 +34,15 @@ function AddNewTask() {
     setTasks(remainingTasks);
   };
 
+  const moveToTasks = (taskId) => {
+    const task = completedTasks.find((task) => task.id === taskId);
+    const updatedCompletedTasks = completedTasks.filter(
+      (task) => task.id !== taskId
+    );
+    setCompletedTasks(updatedCompletedTasks);
+    setTasks([...tasks, { ...task, checked: false }]);
+  };
+
   return (
     <div>
       <form onSubmit={handleAddTask}>
@@ -70,10 +79,20 @@ function AddNewTask() {
 
       <h3>Completed Tasks</h3>
       <table>
-        {/* Table headers */}
+        <thead>
+          <tr>
+            <th>Task Name</th>
+            <th>Task Description</th>
+          </tr>
+        </thead>
         <tbody>
           {completedTasks.map((task) => (
-            <Task key={task.id} task={task} />
+            <Task
+              key={task.id}
+              task={task}
+              onMoveToTasks={moveToTasks}
+              isCompletedTask={true}
+            />
           ))}
         </tbody>
       </table>

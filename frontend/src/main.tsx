@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
-import NewTask from './pages/NewTask.tsx';
+import AllTaskPage from './pages/AllTaskPage.tsx';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -11,8 +11,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: '/add-new-task',
-    element: <NewTask />,
+    path: '/view-all-task',
+    element: <AllTaskPage />,
   },
 ]);
 

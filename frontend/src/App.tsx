@@ -4,14 +4,14 @@
 // import viteLogo from '/vite.svg';
 import './App.css';
 import Navbar from './components/Navbar.tsx';
-import AllTask from './components/AllTask.tsx';
+import AddNewTask from './components/AddNewTask.tsx';
 
 function App() {
   return (
     <>
       <Navbar />
       <h1>Task Management List</h1>
-      <AllTask />
+      <AddNewTask />
     </>
   );
 }

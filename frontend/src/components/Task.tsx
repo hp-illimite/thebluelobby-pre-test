@@ -1,8 +1,12 @@
 import React from 'react';
 
-function Task({ task, onTaskCheck }) {
+function Task({ task, onTaskCheck, onMoveToTasks, isCompletedTask }) {
   const checkboxChange = () => {
     onTaskCheck(task.id);
+  };
+
+  const moveToTasks = () => {
+    onMoveToTasks(task.id);
   };
 
   return (
@@ -16,6 +20,11 @@ function Task({ task, onTaskCheck }) {
           onChange={checkboxChange}
         />
       </td>
+      {isCompletedTask && (
+        <td>
+          <button onClick={moveToTasks}>Move to Tasks</button>
+        </td>
+      )}
     </tr>
   );
 }
