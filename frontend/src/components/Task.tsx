@@ -1,12 +1,22 @@
 import React from 'react';
 
-function Task({ task, onTaskCheck, onMoveToTasks, isCompletedTask }) {
+function Task({
+  task,
+  onTaskCheck,
+  onMoveToTasks,
+  isCompletedTask,
+  onDeleteTask,
+}) {
   const checkboxChange = () => {
     onTaskCheck(task.id);
   };
 
   const moveToTasks = () => {
     onMoveToTasks(task.id);
+  };
+
+  const deleteTask = () => {
+    onDeleteTask(task.id);
   };
 
   return (
@@ -25,6 +35,9 @@ function Task({ task, onTaskCheck, onMoveToTasks, isCompletedTask }) {
           <button onClick={moveToTasks}>Move to Tasks</button>
         </td>
       )}
+      <td>
+        <button onClick={deleteTask}>Delete</button>
+      </td>
     </tr>
   );
 }

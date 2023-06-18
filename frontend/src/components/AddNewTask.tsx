@@ -43,6 +43,16 @@ function AddNewTask() {
     setTasks([...tasks, { ...task, checked: false }]);
   };
 
+  const deleteTask = (taskId) => {
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
+    const updatedCompletedTasks = completedTasks.filter(
+      (task) => task.id !== taskId
+    );
+
+    setTasks(updatedTasks);
+    setCompletedTasks(updatedCompletedTasks);
+  };
+
   return (
     <div>
       <form onSubmit={handleAddTask}>
@@ -70,7 +80,12 @@ function AddNewTask() {
         </thead>
         <tbody>
           {tasks.map((task) => (
-            <Task key={task.id} task={task} onTaskCheck={taskCheck} />
+            <Task
+              key={task.id}
+              task={task}
+              onTaskCheck={taskCheck}
+              onDeleteTask={deleteTask}
+            />
           ))}
         </tbody>
       </table>
@@ -92,6 +107,7 @@ function AddNewTask() {
               task={task}
               onMoveToTasks={moveToTasks}
               isCompletedTask={true}
+              onDeleteTask={deleteTask}
             />
           ))}
         </tbody>
