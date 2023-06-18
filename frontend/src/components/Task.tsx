@@ -23,16 +23,18 @@ function Task({
     <tr>
       <td>{task.title}</td>
       <td>{task.description}</td>
-      <td>
-        <input
-          type="checkbox"
-          checked={task.checked}
-          onChange={checkboxChange}
-        />
-      </td>
+      {!isCompletedTask && (
+        <td>
+          <input
+            type="checkbox"
+            checked={task.checked}
+            onChange={checkboxChange}
+          />
+        </td>
+      )}
       {isCompletedTask && (
         <td>
-          <button onClick={moveToTasks}>Move to Tasks</button>
+          <button onClick={moveToTasks}>Mark as Pending Task</button>
         </td>
       )}
       <td>

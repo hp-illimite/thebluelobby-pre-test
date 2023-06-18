@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Task from './Task.tsx';
+import { v4 as uuidv4 } from 'uuid';
 
 function AddNewTask() {
   const [tasks, setTasks] = useState([]);
@@ -10,7 +11,7 @@ function AddNewTask() {
   const handleAddTask = (e) => {
     e.preventDefault();
     const newTask = {
-      id: tasks.length + 1,
+      id: uuidv4(),
       title: newTaskTitle,
       description: newTaskDescription,
       checked: false,
@@ -70,12 +71,13 @@ function AddNewTask() {
         <button type="submit">Add New Task</button>
       </form>
 
-      <h3>Task List</h3>
+      <h3>Pending Task List</h3>
       <table>
         <thead>
           <tr>
             <th>Task Name</th>
             <th>Task Description</th>
+            <th>Complete</th>
           </tr>
         </thead>
         <tbody>
@@ -98,6 +100,7 @@ function AddNewTask() {
           <tr>
             <th>Task Name</th>
             <th>Task Description</th>
+            {/* <th>Complete</th> */}
           </tr>
         </thead>
         <tbody>
